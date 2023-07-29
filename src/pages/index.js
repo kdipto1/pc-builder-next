@@ -1,3 +1,4 @@
+import FeaturedCategory from "@/components/Home/FeaturedCategory";
 import FeaturedProducts from "@/components/Home/FeaturedProducts";
 
 export default function HomePage({ data }) {
@@ -5,6 +6,7 @@ export default function HomePage({ data }) {
     <>
       <h1 style={{ textAlign: "center", fontSize: "2rem" }}>Home page</h1>
       <FeaturedProducts products={data} />
+      <FeaturedCategory />
     </>
   );
 }

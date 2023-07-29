@@ -3,7 +3,6 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -14,7 +13,6 @@ const client = new MongoClient(uri, {
 
 async function run(req, res) {
   try {
-    // Connect the client to the server (optional starting in v4.7)
     await client.connect();
     const productsCollection = client.db("pc-builder").collection("products");
 
@@ -36,33 +34,32 @@ async function run(req, res) {
       res.json({ message: "success", status: 200, data: product });
     }
 
-    if (req.method === "PATCH") {
-      const id = req.query.id;
-      if (!id) {
-        return res
-          .status(400)
-          .json({ message: "Item ID is required", status: 400 });
-      }
+    // if (req.method === "PATCH") {
+    //   const id = req.query.id;
+    //   if (!id) {
+    //     return res
+    //       .status(400)
+    //       .json({ message: "Item ID is required", status: 400 });
+    //   }
 
-      const product = req.body;
+    //   const product = req.body;
 
-      const result = await productsCollection.updateOne(
-        { _id: new ObjectId(id) },
-        { $set: product } // Use $set to update only the provided fields
-      );
+    //   const result = await productsCollection.updateOne(
+    //     { _id: new ObjectId(id) },
+    //     { $set: product }
+    //   );
 
-      if (result.modifiedCount === 0) {
-        return res.status(404).json({ message: "Item not found", status: 404 });
-      }
+    //   if (result.modifiedCount === 0) {
+    //     return res.status(404).json({ message: "Item not found", status: 404 });
+    //   }
 
-      res.json({ message: "success", status: 200, data: result });
-    }
+    //   res.json({ message: "success", status: 200, data: result });
+    // }
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ message: "Internal server error", status: 500 });
   } finally {
-    // Ensure that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 

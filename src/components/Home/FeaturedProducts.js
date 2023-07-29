@@ -4,7 +4,7 @@ import React from "react";
 
 const FeaturedProducts = ({ products }) => {
   const { Meta } = Card;
-  console.log(products.data);
+
   return (
     <div>
       <h2 style={{ textAlign: "center", fontSize: "2rem" }}>
