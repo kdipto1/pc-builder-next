@@ -7,11 +7,14 @@ import { Power } from "@styled-icons/icomoon/Power";
 import { DeviceSsd } from "@styled-icons/bootstrap/DeviceSsd";
 import { MonitorOutline } from "@styled-icons/evaicons-outline/MonitorOutline";
 import { Card } from "antd";
+import Link from "next/link";
 
 const FeaturedCategory = () => {
   return (
     <div style={{ paddingTop: "2rem", paddingBottom: "1rem" }}>
-      <h2 style={{ textAlign: "center", fontSize: "2rem" }}>
+      <h2
+        style={{ textAlign: "center", fontSize: "2rem", marginBottom: "1rem" }}
+      >
         Featured Categories
       </h2>
       <Row justify="space-around" gutter={[40, 40]} style={{ margin: "1rem" }}>
@@ -21,9 +24,11 @@ const FeaturedCategory = () => {
           md={{ span: 4 }}
           lg={{ span: 3 }}
         >
-          <Card hoverable bordered={false} bodyStyle={{}}>
-            <Cpu title="cpu" />
-          </Card>
+          <Link href="/category/cpu">
+            <Card hoverable bordered={false} bodyStyle={{}}>
+              <Cpu title="cpu" />
+            </Card>
+          </Link>
         </Col>
         <Col
           xs={{ span: 12 }}
@@ -31,9 +36,11 @@ const FeaturedCategory = () => {
           md={{ span: 4 }}
           lg={{ span: 3 }}
         >
-          <Card hoverable bordered={false} bodyStyle={{}}>
-            <Motherboard title="motherboard" />
-          </Card>
+          <Link href="/category/motherboard">
+            <Card hoverable bordered={false} bodyStyle={{}}>
+              <Motherboard title="motherboard" />
+            </Card>
+          </Link>
         </Col>
         <Col
           xs={{ span: 12 }}
@@ -41,9 +48,11 @@ const FeaturedCategory = () => {
           md={{ span: 4 }}
           lg={{ span: 3 }}
         >
-          <Card hoverable bordered={false} bodyStyle={{}}>
-            <Memory title="ram memory" />
-          </Card>
+          <Link href="/category/ram">
+            <Card hoverable bordered={false} bodyStyle={{}}>
+              <Memory title="ram memory" />
+            </Card>
+          </Link>
         </Col>
         <Col
           xs={{ span: 12 }}
@@ -51,9 +60,11 @@ const FeaturedCategory = () => {
           md={{ span: 4 }}
           lg={{ span: 3 }}
         >
-          <Card hoverable bordered={false} bodyStyle={{}}>
-            <Power title="power supply units" />
-          </Card>
+          <Link href="/category/power-supply">
+            <Card hoverable bordered={false} bodyStyle={{}}>
+              <Power title="power supply units" />
+            </Card>
+          </Link>
         </Col>
         <Col
           xs={{ span: 12 }}
@@ -61,9 +72,11 @@ const FeaturedCategory = () => {
           md={{ span: 4 }}
           lg={{ span: 3 }}
         >
-          <Card hoverable bordered={false} bodyStyle={{}}>
-            <DeviceSsd title="storage devices" />
-          </Card>
+          <Link href="/category/storage">
+            <Card hoverable bordered={false} bodyStyle={{}}>
+              <DeviceSsd title="storage devices" />
+            </Card>
+          </Link>
         </Col>
         <Col
           xs={{ span: 12 }}
@@ -71,9 +84,11 @@ const FeaturedCategory = () => {
           md={{ span: 4 }}
           lg={{ span: 3 }}
         >
-          <Card hoverable bordered={false} bodyStyle={{}}>
-            <MonitorOutline title="monitors" />
-          </Card>
+          <Link href="/category/monitor">
+            <Card hoverable bordered={false} bodyStyle={{}}>
+              <MonitorOutline title="monitors" />
+            </Card>
+          </Link>
         </Col>
       </Row>
     </div>
