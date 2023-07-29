@@ -11,10 +11,7 @@ const FeaturedProducts = ({ products }) => {
         Featured Products
       </h2>
 
-      <Row
-        justify="space-around"
-        style={{ marginLeft: "auto", marginRight: "auto" }}
-      >
+      <Row justify="center" gutter={[0, 40]}>
         {products?.data?.map((product) => (
           <Col
             key={product._id}
@@ -26,10 +23,10 @@ const FeaturedProducts = ({ products }) => {
             <Card
               key={product._id}
               hoverable
-              style={{ width: 240 }}
+              style={{ width: 240, marginLeft: "auto", marginRight: "auto" }}
               cover={
                 <Image
-                  width={200}
+                  width={400}
                   height={200}
                   responsive="true"
                   src={product.image}
@@ -37,10 +34,11 @@ const FeaturedProducts = ({ products }) => {
                 />
               }
             >
-              <Meta
-                title={product.productName}
-                description="www.instagram.com"
-              />
+              <Meta title={product.productName} />
+              <p>Category: {product.category}</p>
+              <p>Price: {product.price}</p>
+              <p>Status: {product.status}</p>
+              <p>Rating: {product.averageRating}/5</p>
             </Card>
           </Col>
         ))}
