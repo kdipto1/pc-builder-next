@@ -49,7 +49,7 @@ const MainLayout = ({ children }) => {
       >
         <div className="demo-logo" />
         <Button type="primary" onClick={handleMenuToggle}>
-          PC Builder
+          <Link href={"/pc-builder"}>PC Builder</Link>
         </Button>
         <Dropdown
           overlay={categoriesMenu}
@@ -63,12 +63,14 @@ const MainLayout = ({ children }) => {
       <Content
         style={{
           padding: "0 0",
+          minHeight: "screen",
         }}
       >
         <div
-          className="site-layout-content"
+          // className="site-layout-content"
           style={{
             background: colorBgContainer,
+            minHeight: "screen",
           }}
         >
           {children}
