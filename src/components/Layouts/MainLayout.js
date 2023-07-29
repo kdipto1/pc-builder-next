@@ -3,6 +3,7 @@ import { Breadcrumb, Button, Layout, Menu, theme } from "antd";
 import Link from "next/link";
 import { Dropdown } from "antd";
 const { Header, Content, Footer } = Layout;
+import { HomeSmile } from "@styled-icons/boxicons-regular/HomeSmile";
 
 const MainLayout = ({ children }) => {
   const [menuCollapsed, setMenuCollapsed] = useState(true);
@@ -45,20 +46,27 @@ const MainLayout = ({ children }) => {
         style={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
+        <Link href={"/"} style={{ display: "flex", background: "red" }}>
+          <HomeSmile />
+          Home
+        </Link>
         <div className="demo-logo" />
-        <Button type="primary" onClick={handleMenuToggle}>
-          <Link href={"/pc-builder"}>PC Builder</Link>
-        </Button>
-        <Dropdown
-          overlay={categoriesMenu}
-          placement="bottomRight"
-          trigger={["click"]}
-        >
-          <Button className="categories-dropdown-btn">Categories</Button>
-        </Dropdown>
-        <Menu theme="dark" mode="horizontal" />
+        <div>
+          <Button type="primary" onClick={handleMenuToggle}>
+            <Link href={"/pc-builder"}>PC Builder</Link>
+          </Button>
+          <Dropdown
+            overlay={categoriesMenu}
+            placement="bottomRight"
+            trigger={["click"]}
+          >
+            <Button className="categories-dropdown-btn">Categories</Button>
+          </Dropdown>
+        </div>
+        {/* <Menu theme="dark" mode="horizontal" /> */}
       </Header>
       <Content
         style={{

@@ -1,3 +1,4 @@
+import ProductCard from "@/shared/ProductCard";
 import { Card, Col, Row } from "antd";
 import Image from "next/image";
 import React from "react";
@@ -20,26 +21,7 @@ const FeaturedProducts = ({ products }) => {
             md={{ span: 8 }}
             lg={{ span: 6 }}
           >
-            <Card
-              key={product._id}
-              hoverable
-              style={{ width: 240, marginLeft: "auto", marginRight: "auto" }}
-              cover={
-                <Image
-                  width={400}
-                  height={200}
-                  responsive="true"
-                  src={product.image}
-                  alt="pc components"
-                />
-              }
-            >
-              <Meta title={product.productName} />
-              <p>Category: {product.category}</p>
-              <p>Price: {product.price}</p>
-              <p>Status: {product.status}</p>
-              <p>Rating: {product.averageRating}/5</p>
-            </Card>
+            <ProductCard product={product} />
           </Col>
         ))}
       </Row>
