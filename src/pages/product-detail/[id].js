@@ -31,18 +31,20 @@ const ProductDetailsPage = ({ data, error }) => {
 export default ProductDetailsPage;
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  const res = await fetch(`${process.env.BASE_URL}/api/products`);
   const data = await res.json();
   const paths = data?.data.map((product) => ({
     params: { id: product._id },
   }));
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps(context) {
   const { params } = context;
   try {
-    const res = await fetch(`http://localhost:3000/api/products/${params.id}`);
+    const res = await fetch(
+      `${process.env.BASE_URL}/api/products/${params.id}`
+    );
     if (!res.ok) {
       throw new Error("Product not found");
     }

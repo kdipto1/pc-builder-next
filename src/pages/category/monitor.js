@@ -8,7 +8,7 @@ export default AllMonitor;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/products/category?category=monitor"
+    `${process.env.BASE_URL}/api/products/category?category=monitor`
   );
   const monitors = await res.json();
 

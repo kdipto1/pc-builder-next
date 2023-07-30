@@ -9,7 +9,7 @@ export default AllKeyboard;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/products/category?category=keyboard"
+    `${process.env.BASE_URL}/api/products/category?category=keyboard`
   );
   const keyboards = await res.json();
 

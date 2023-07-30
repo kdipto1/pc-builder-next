@@ -8,7 +8,7 @@ export default AllMouse;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/products/category?category=mouse"
+    `${process.env.BASE_URL}/api/products/category?category=mouse`
   );
   const mouses = await res.json();
 

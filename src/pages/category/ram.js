@@ -8,7 +8,7 @@ export default AllRam;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/products/category?category=ram"
+    `${process.env.BASE_URL}/api/products/category?category=ram`
   );
   const rams = await res.json();
 

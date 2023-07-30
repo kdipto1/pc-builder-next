@@ -11,13 +11,13 @@ import Link from "next/link";
 
 const FeaturedCategory = () => {
   return (
-    <div style={{ paddingTop: "2rem", paddingBottom: "1rem" }}>
+    <div style={{ paddingTop: "2rem", paddingBottom: "2rem", margin: "1rem" }}>
       <h2
         style={{ textAlign: "center", fontSize: "2rem", marginBottom: "1rem" }}
       >
         Featured Categories
       </h2>
-      <Row justify="space-around" gutter={[40, 40]} style={{ margin: "1rem" }}>
+      <Row justify="space-around" gutter={[40, 40]}>
         <Col
           xs={{ span: 12 }}
           sm={{ span: 6 }}

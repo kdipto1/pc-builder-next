@@ -8,7 +8,7 @@ export default AllGpu;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/products/category?category=gpu"
+    `${process.env.BASE_URL}/api/products/category?category=gpu`
   );
   const gpus = await res.json();
 

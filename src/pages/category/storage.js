@@ -8,7 +8,7 @@ export default AllStorage;
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/products/category?category=storage"
+    `${process.env.BASE_URL}/api/products/category?category=storage`
   );
   const storageDevices = await res.json();
 
