@@ -4,8 +4,10 @@ import Link from "next/link";
 import { Dropdown } from "antd";
 const { Header, Content, Footer } = Layout;
 import { HomeSmile } from "@styled-icons/boxicons-regular/HomeSmile";
+import { signOut, useSession } from "next-auth/react";
 
 const MainLayout = ({ children }) => {
+  const { data: session } = useSession();
   const [menuCollapsed, setMenuCollapsed] = useState(true);
   const {
     token: { colorBgContainer },
@@ -49,9 +51,18 @@ const MainLayout = ({ children }) => {
           justifyContent: "space-between",
         }}
       >
-        <Link href={"/"} style={{ display: "flex", background: "red" }}>
-          <HomeSmile />
-          Home
+        <Link
+          href={"/"}
+          style={{
+            display: "flex",
+            color: "wheat",
+            fontWeight: "bold",
+          }}
+        >
+          <p>
+            <HomeSmile size="32" />
+          </p>
+          <p style={{ fontSize: "1.5rem" }}>Pc-Builder</p>
         </Link>
         <div className="demo-logo" />
         <div>
@@ -65,6 +76,20 @@ const MainLayout = ({ children }) => {
           >
             <Button className="categories-dropdown-btn">Categories</Button>
           </Dropdown>
+          {session?.user ? (
+            <items>
+              <Button onClick={() => signOut()} type="primary" danger>
+                Logout
+              </Button>
+            </items>
+          ) : (
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              href="/login"
+            >
+              <items>Login</items>
+            </Link>
+          )}
         </div>
         {/* <Menu theme="dark" mode="horizontal" /> */}
       </Header>
