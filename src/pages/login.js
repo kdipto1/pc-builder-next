@@ -10,36 +10,16 @@ const LoginPage = () => {
 
   const { callbackUrl } = router.query;
 
-  const [isHoveredGoogle, setIsHoveredGoogle] = useState(false);
   const [isHoveredGithub, setIsHoveredGithub] = useState(false);
 
-  const handleMouseEnterGoogle = () => {
-    setIsHoveredGoogle(true);
-  };
   const handleMouseEnterGithub = () => {
     setIsHoveredGithub(true);
   };
 
-  const handleMouseLeaveGoogle = () => {
-    setIsHoveredGoogle(false);
-  };
   const handleMouseLeaveGithub = () => {
     setIsHoveredGithub(false);
   };
 
-  const boxStyleGoogle = {
-    width: "200px",
-    height: "200px",
-    backgroundColor: isHoveredGoogle ? "#FFC0CB" : "#00CED1",
-    transition: "background-color 0.3s ease",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: "24px",
-    color: "#fff",
-    fontWeight: "bold",
-    cursor: "pointer",
-  };
   const boxStyleGithub = {
     width: "200px",
     height: "200px",
@@ -58,18 +38,6 @@ const LoginPage = () => {
     <div style={{ padding: "20px" }}>
       <h1 style={{ textAlign: "center", fontSize: "2rem" }}>Login</h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <p>
-          <Google
-            style={boxStyleGoogle}
-            onMouseEnter={handleMouseEnterGoogle}
-            onMouseLeave={handleMouseLeaveGoogle}
-            onClick={() =>
-              signIn("google", {
-                callbackUrl: callbackUrl || process.env.BASE_URL,
-              })
-            }
-          />
-        </p>
         <p style={{ marginLeft: "0.5rem" }}>
           <Github
             style={boxStyleGithub}

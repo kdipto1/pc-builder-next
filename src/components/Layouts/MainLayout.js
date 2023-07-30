@@ -16,6 +16,7 @@ const MainLayout = ({ children }) => {
   const handleMenuToggle = () => {
     setMenuCollapsed(!menuCollapsed);
   };
+  console.log(session);
 
   const categoriesMenu = (
     <Menu>
