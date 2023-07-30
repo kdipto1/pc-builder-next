@@ -71,14 +71,13 @@ const MainLayout = ({ children }) => {
       <Content
         style={{
           padding: "0 0",
-          minHeight: "screen",
         }}
       >
         <div
           // className="site-layout-content"
           style={{
             background: colorBgContainer,
-            minHeight: "800px",
+            minHeight: "100vh",
           }}
         >
           {children}
