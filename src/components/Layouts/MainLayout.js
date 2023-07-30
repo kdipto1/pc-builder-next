@@ -5,6 +5,7 @@ import { Dropdown } from "antd";
 const { Header, Content, Footer } = Layout;
 import { HomeSmile } from "@styled-icons/boxicons-regular/HomeSmile";
 import { signOut, useSession } from "next-auth/react";
+import styles from "./MainLayout.module.css";
 
 const MainLayout = ({ children }) => {
   const { data: session } = useSession();
@@ -16,7 +17,6 @@ const MainLayout = ({ children }) => {
   const handleMenuToggle = () => {
     setMenuCollapsed(!menuCollapsed);
   };
-  console.log(session);
 
   const categoriesMenu = (
     <Menu>
@@ -92,7 +92,7 @@ const MainLayout = ({ children }) => {
             </Link>
           )}
         </div>
-        {/* <Menu theme="dark" mode="horizontal" /> */}
+        <Menu theme="dark" mode="horizontal" />
       </Header>
       <Content
         style={{
