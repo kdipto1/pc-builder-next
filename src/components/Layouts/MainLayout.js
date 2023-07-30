@@ -78,7 +78,7 @@ const MainLayout = ({ children }) => {
           // className="site-layout-content"
           style={{
             background: colorBgContainer,
-            minHeight: "screen",
+            minHeight: "800px",
           }}
         >
           {children}

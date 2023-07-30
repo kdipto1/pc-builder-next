@@ -1,11 +1,8 @@
 import ProductCard from "@/shared/ProductCard";
-import { Card, Col, Row } from "antd";
-import Image from "next/image";
+import { Col, Row } from "antd";
 import React from "react";
 
 const FeaturedProducts = ({ products }) => {
-  const { Meta } = Card;
-
   return (
     <div>
       <h2 style={{ textAlign: "center", fontSize: "2rem" }}>
