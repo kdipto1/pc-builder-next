@@ -55,7 +55,7 @@ const MainLayout = ({ children }) => {
         <Link href="/category/ram">RAM</Link>
       </Menu.Item>
       <Menu.Item key="psu">
-        <Link href="/category/psu">Power Supply Unit</Link>
+        <Link href="/category/power-supply">Power Supply Unit</Link>
       </Menu.Item>
       <Menu.Item key="storage">
         <Link href="/category/storage">Storage Device</Link>
@@ -76,6 +76,7 @@ const MainLayout = ({ children }) => {
       </Menu.SubMenu>
     </Menu>
   );
+
   return (
     <Layout className="layout">
       <Row
@@ -123,7 +124,7 @@ const MainLayout = ({ children }) => {
           </Dropdown>
           {session?.user ? (
             <items>
-              <Button onClick={() => signOut()} type="primary" danger>
+              <Button onClick={() => signOut()} type="link" danger>
                 Logout
               </Button>
             </items>

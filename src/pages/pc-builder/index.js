@@ -1,4 +1,5 @@
-import { Card } from "antd";
+import { Button, Card } from "antd";
+import styles from "@/styles/PcBuilder.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,6 +10,7 @@ import { Memory } from "@styled-icons/bootstrap/Memory";
 import { Power } from "@styled-icons/icomoon/Power";
 import { DeviceSsd } from "@styled-icons/bootstrap/DeviceSsd";
 import { MonitorOutline } from "@styled-icons/evaicons-outline/MonitorOutline";
+import { notification } from "antd";
 
 const PcBuilderPage = () => {
   const selectedComponents = useSelector(
@@ -42,16 +44,17 @@ const PcBuilderPage = () => {
   const keyboardComponent = selectedComponents.filter(
     (component) => component.category === "Keyboard"
   );
-  console.log(
-    cpuComponent,
-    motherboardComponent,
-    ramComponent,
-    powerSupplyComponent,
-    storageComponent,
-    monitorComponent
-  );
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (placement) => {
+    api.info({
+      message: `Build completed`,
+      placement,
+    });
+  };
+
   return (
     <div>
+      {contextHolder}
       <p
         style={{
           fontSize: "2rem",
@@ -62,61 +65,500 @@ const PcBuilderPage = () => {
       >
         Pc Builder
       </p>
-      <div>
-        Cpu
-        {cpuComponent.map((compo) => (
-          <div
-            key={compo._id}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <div>
-              <Cpu size={22} />
+      <div className={styles.selectCardContainer}>
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                CPU
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/cpu`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
             </div>
-            <div>
-              <p>Cpu</p>
-              <p>{compo.productName}</p>
-              <p>{compo.price}$</p>
-            </div>
-            <div></div>
-            <Link href={`${process.env.BASE_URL}/pc-builder/choose/cpu`}>
-              Choose
-            </Link>
+            <div className={styles.divider}></div>
+            {cpuComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div style={{ marginLeft: "0.5rem" }}>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="cpu image"
+                />
+              </div> */}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div>
-        Motherboard
-        <Link href={`${process.env.BASE_URL}/pc-builder/choose/motherboard`}>
-          Choose
-        </Link>
-      </div>
-      <div>
-        Ram
-        <Link href={`${process.env.BASE_URL}/pc-builder/choose/ram`}>
-          Choose
-        </Link>
-      </div>
-      <div>
-        Power Supply
-        <Link href={`${process.env.BASE_URL}/pc-builder/choose/power supply`}>
-          Choose
-        </Link>
-      </div>
-      <div>
-        Storage
-        <Link href={`${process.env.BASE_URL}/pc-builder/choose/storage`}>
-          Choose
-        </Link>
-      </div>
-      <div>
-        Monitor
-        <Link href={`${process.env.BASE_URL}/pc-builder/choose/monitor`}>
-          Choose
-        </Link>
-      </div>
+        </div>
 
+        {/*  */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                Motherboard
+              </p>
+              <Link
+                href={`${process.env.BASE_URL}/pc-builder/choose/motherboard`}
+              >
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {motherboardComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div style={{ marginLeft: "0.5rem" }}>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="motherboard image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* +++++++++++++++ motherboard ------- */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                RAM
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/ram`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {ramComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div style={{ marginLeft: "0.5rem" }}>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="ram image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* +++++++++ ram ---------- */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                PSU
+              </p>
+              <Link
+                href={`${process.env.BASE_URL}/pc-builder/choose/power supply`}
+              >
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {powerSupplyComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div style={{ marginLeft: "0.5rem" }}>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="motherboard image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* +++++++++++psu ------------- */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                Storage Device
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/storage`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {storageComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div style={{ marginLeft: "0.5rem" }}>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="storage image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* ++++++++++++++ storage --------------- */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                Monitor
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/monitor`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {monitorComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="monitor image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/*  +++++++++ monitor ------------*/}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                GPU
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/gpu`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {gpuComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="monitor image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* +++++++++++ gpu------- */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                Mouse
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/mouse`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {mouseComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="monitor image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* ++++++++++ mouse ----------- */}
+        <div className={styles.selectCard}>
+          <div style={{ display: "flex" }}>
+            <Cpu size={52} />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  textAlign: "center",
+                }}
+              >
+                Keyboard
+              </p>
+              <Link href={`${process.env.BASE_URL}/pc-builder/choose/keyboard`}>
+                <Button style={{ fontWeight: "revert" }}>Choose</Button>
+              </Link>
+            </div>
+            <div className={styles.divider}></div>
+            {keyboardComponent?.map((compo) => (
+              <div
+                key={compo._id}
+                style={{ display: "flex", justifyContent: "" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexDirection: "column",
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  <p>Name: {compo.productName}</p>
+                  <p>Price: {compo.price}$</p>
+                </div>
+                {/* <div>
+                <Image
+                  width={50}
+                  height={50}
+                  src={compo.image}
+                  alt="monitor image"
+                />
+              </div> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* +++++++++++++ keyboard ------- */}
+      </div>
       {/*  +++++++++++++++++++++++ */}
-      <button disabled={selectedComponents.length <= 3}>Done</button>
+      <div style={{ textAlign: "center", paddingBottom: "4rem" }}>
+        <Button
+          type="primary"
+          onClick={() => openNotification("top")}
+          disabled={selectedComponents.length <= 5}
+        >
+          Complete Build
+        </Button>
+      </div>
     </div>
   );
 };

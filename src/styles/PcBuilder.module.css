@@ -1,0 +1,28 @@
+.selectCard {
+  background-color: wheat;
+  /* max-width: 40rem; */
+  width: 50%;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.divider {
+  border: 0.1rem solid black;
+  margin-left: 1rem;
+}
+
+.selectCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+@media (max-width: 768px) {
+  .selectCard {
+    width: 80%;
+  }
+}

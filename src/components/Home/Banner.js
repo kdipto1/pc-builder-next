@@ -12,7 +12,7 @@ const Banner = () => {
       }}
     >
       <Row gutter={[16, 16]} justify="center" align="middle">
-        <Col xs={24} sm={12} lg={8}>
+        <Col xs={24} sm={12} lg={12}>
           <h1
             style={{
               fontSize: "2rem",
@@ -26,7 +26,7 @@ const Banner = () => {
             Choose from the latest components and build your perfect PC.
           </p>
         </Col>
-        <Col xs={24} sm={12} lg={16}>
+        <Col xs={24} sm={12} lg={12}>
           <Image
             width={900}
             height={600}
