@@ -10,13 +10,15 @@ import { Memory } from "@styled-icons/bootstrap/Memory";
 import { Power } from "@styled-icons/icomoon/Power";
 import { DeviceSsd } from "@styled-icons/bootstrap/DeviceSsd";
 import { MonitorOutline } from "@styled-icons/evaicons-outline/MonitorOutline";
+import { GpuCard } from "@styled-icons/bootstrap/GpuCard";
+import { Mouse } from "@styled-icons/bootstrap/Mouse";
+import { Keyboard } from "@styled-icons/bootstrap/Keyboard";
 import { notification } from "antd";
 
 const PcBuilderPage = () => {
   const selectedComponents = useSelector(
     (state) => state.pcBuilder.selectedComponents
   );
-  // console.log(selectedComponents);
   const cpuComponent = selectedComponents.filter(
     (component) => component.category === "CPU"
   );
@@ -122,7 +124,7 @@ const PcBuilderPage = () => {
         {/*  */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <Motherboard size={52} />
             <div
               style={{
                 display: "flex",
@@ -177,7 +179,7 @@ const PcBuilderPage = () => {
         {/* +++++++++++++++ motherboard ------- */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <Memory size={52} />
             <div
               style={{
                 display: "flex",
@@ -230,7 +232,7 @@ const PcBuilderPage = () => {
         {/* +++++++++ ram ---------- */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <Power size={52} />
             <div
               style={{
                 display: "flex",
@@ -285,7 +287,7 @@ const PcBuilderPage = () => {
         {/* +++++++++++psu ------------- */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <DeviceSsd size={52} />
             <div
               style={{
                 display: "flex",
@@ -338,7 +340,7 @@ const PcBuilderPage = () => {
         {/* ++++++++++++++ storage --------------- */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <MonitorOutline size={52} />
             <div
               style={{
                 display: "flex",
@@ -391,7 +393,7 @@ const PcBuilderPage = () => {
         {/*  +++++++++ monitor ------------*/}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <GpuCard size={52} />
             <div
               style={{
                 display: "flex",
@@ -444,7 +446,7 @@ const PcBuilderPage = () => {
         {/* +++++++++++ gpu------- */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <Mouse size={52} />
             <div
               style={{
                 display: "flex",
@@ -497,7 +499,7 @@ const PcBuilderPage = () => {
         {/* ++++++++++ mouse ----------- */}
         <div className={styles.selectCard}>
           <div style={{ display: "flex" }}>
-            <Cpu size={52} />
+            <Keyboard size={52} />
             <div
               style={{
                 display: "flex",

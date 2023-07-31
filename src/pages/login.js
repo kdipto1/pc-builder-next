@@ -21,8 +21,8 @@ const LoginPage = () => {
   };
 
   const boxStyleGithub = {
-    width: "200px",
-    height: "200px",
+    width: "100px",
+    height: "100px",
     backgroundColor: isHoveredGithub ? "#FFC0CB" : "#00CED1",
     transition: "background-color 0.3s ease",
     display: "flex",
