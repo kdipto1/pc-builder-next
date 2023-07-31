@@ -10,6 +10,7 @@ import { Card } from "antd";
 import Link from "next/link";
 
 const FeaturedCategory = () => {
+  const { Meta } = Card;
   return (
     <div style={{ paddingTop: "2rem", paddingBottom: "2rem", margin: "1rem" }}>
       <h2
@@ -27,6 +28,16 @@ const FeaturedCategory = () => {
           <Link href="/category/cpu">
             <Card hoverable bordered={false} bodyStyle={{}}>
               <Cpu title="cpu" />
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "0.2rem",
+                  fontSize: "1rem",
+                }}
+              >
+                CPU
+              </p>
             </Card>
           </Link>
         </Col>
@@ -39,6 +50,16 @@ const FeaturedCategory = () => {
           <Link href="/category/motherboard">
             <Card hoverable bordered={false} bodyStyle={{}}>
               <Motherboard title="motherboard" />
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "0.2rem",
+                  fontSize: "1rem",
+                }}
+              >
+                Motherboard
+              </p>
             </Card>
           </Link>
         </Col>
@@ -51,6 +72,16 @@ const FeaturedCategory = () => {
           <Link href="/category/ram">
             <Card hoverable bordered={false} bodyStyle={{}}>
               <Memory title="ram memory" />
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "0.2rem",
+                  fontSize: "1rem",
+                }}
+              >
+                RAM
+              </p>
             </Card>
           </Link>
         </Col>
@@ -63,6 +94,16 @@ const FeaturedCategory = () => {
           <Link href="/category/power-supply">
             <Card hoverable bordered={false} bodyStyle={{}}>
               <Power title="power supply units" />
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "0.2rem",
+                  fontSize: "1rem",
+                }}
+              >
+                PSU
+              </p>
             </Card>
           </Link>
         </Col>
@@ -75,6 +116,16 @@ const FeaturedCategory = () => {
           <Link href="/category/storage">
             <Card hoverable bordered={false} bodyStyle={{}}>
               <DeviceSsd title="storage devices" />
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "0.2rem",
+                  fontSize: "1rem",
+                }}
+              >
+                Storage
+              </p>
             </Card>
           </Link>
         </Col>
@@ -87,6 +138,16 @@ const FeaturedCategory = () => {
           <Link href="/category/monitor">
             <Card hoverable bordered={false} bodyStyle={{}}>
               <MonitorOutline title="monitors" />
+              <p
+                style={{
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "0.2rem",
+                  fontSize: "1rem",
+                }}
+              >
+                Monitors
+              </p>
             </Card>
           </Link>
         </Col>

@@ -1,10 +1,12 @@
+import Banner from "@/components/Home/Banner";
 import FeaturedCategory from "@/components/Home/FeaturedCategory";
 import FeaturedProducts from "@/components/Home/FeaturedProducts";
 
 export default function HomePage({ data }) {
   return (
     <>
-      <h1 style={{ textAlign: "center", fontSize: "2rem" }}>Home page</h1>
+      {/* <h1 style={{ textAlign: "center", fontSize: "2rem" }}>Home page</h1> */}
+      <Banner />
       <FeaturedProducts products={data} />
       <FeaturedCategory />
     </>

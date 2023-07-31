@@ -5,7 +5,9 @@ import React from "react";
 const FeaturedProducts = ({ products }) => {
   return (
     <div>
-      <h2 style={{ textAlign: "center", fontSize: "2rem" }}>
+      <h2
+        style={{ textAlign: "center", fontSize: "2rem", marginBottom: "1rem" }}
+      >
         Featured Products
       </h2>
 

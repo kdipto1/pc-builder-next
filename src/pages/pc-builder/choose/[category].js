@@ -1,20 +1,36 @@
 import { addComponent } from "@/redux/features/pcBuilderSlice";
-import { Button, Card } from "antd";
-import { Col, Row } from "antd";
+
+import { Button, Card, notification, Col, Row } from "antd";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch } from "react-redux";
 
 const ProductChooseFromCategory = ({ data }) => {
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (placement) => {
+    api.info({
+      message: `Component selected`,
+      placement,
+    });
+  };
+
   const { Meta } = Card;
   const router = useRouter();
-  console.log(router.query.category);
-  console.log(data);
   const products = data?.data;
   const dispatch = useDispatch();
+  const handleAddComponents = (product) => {
+    dispatch(addComponent(product));
+    openNotification("top");
+
+    setTimeout(() => {
+      router.push("/pc-builder");
+    }, 1000);
+  };
   return (
     <div>
+      {contextHolder}
       <p
         style={{
           fontSize: "2rem",
@@ -53,7 +69,7 @@ const ProductChooseFromCategory = ({ data }) => {
               <p>Price: {product.price}</p>
               <p>Status: {product.status}</p>
               <p>Rating: {product.averageRating}/5</p>
-              <Button onClick={() => dispatch(addComponent(product))}>
+              <Button onClick={() => handleAddComponents(product)}>
                 Add To Builder
               </Button>
             </Card>
