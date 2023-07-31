@@ -1,5 +1,5 @@
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .brandIcon {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 }

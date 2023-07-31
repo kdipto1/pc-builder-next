@@ -36,7 +36,11 @@ const LoginPage = () => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1 style={{ textAlign: "center", fontSize: "2rem" }}>Login</h1>
+      <h1
+        style={{ textAlign: "center", fontSize: "2rem", marginBottom: "1rem" }}
+      >
+        Login
+      </h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <p style={{ marginLeft: "0.5rem" }}>
           <Github
