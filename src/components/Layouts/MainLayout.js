@@ -77,9 +77,11 @@ const MainLayout = ({ children }) => {
           style={{ display: "flex", justifyContent: "flex-end" }}
           sm={{ marginTop: "1rem" }}
         >
-          <Button type="primary" style={{ marginRight: "16px" }}>
-            <Link href={"/pc-builder"}>PC Builder</Link>
-          </Button>
+          <Link href={"/pc-builder"}>
+            <Button type="primary" style={{ marginRight: "16px" }}>
+              PC Builder
+            </Button>
+          </Link>
           <Dropdown
             overlay={categoriesMenu}
             placement="bottomRight"
