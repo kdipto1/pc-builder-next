@@ -5,10 +5,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "images.pexels.com",
-      },
-      {
         hostname: "images.unsplash.com",
+      },
+
+      {
+        hostname: "i.ibb.co",
       },
     ],
   },
