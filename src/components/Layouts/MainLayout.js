@@ -83,7 +83,7 @@ const MainLayout = ({ children }) => {
             </Button>
           </Link>
           <Dropdown
-            overlay={categoriesMenu}
+            menu={categoriesMenu}
             placement="bottomRight"
             trigger={["click"]}
           >
@@ -132,7 +132,7 @@ const MainLayout = ({ children }) => {
           textAlign: "center",
         }}
       >
-        Ant Design ©2023 Created by Ant UED
+        Copyright ©2024 Dipto
       </Footer>
     </Layout>
   );

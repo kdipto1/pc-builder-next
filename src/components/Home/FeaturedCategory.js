@@ -26,7 +26,7 @@ const FeaturedCategory = () => {
           lg={{ span: 3 }}
         >
           <Link href="/category/cpu">
-            <Card hoverable bordered={false} bodyStyle={{}}>
+            <Card hoverable bordered={false}>
               <Cpu title="cpu" />
               <p
                 style={{
@@ -48,7 +48,7 @@ const FeaturedCategory = () => {
           lg={{ span: 3 }}
         >
           <Link href="/category/motherboard">
-            <Card hoverable bordered={false} bodyStyle={{}}>
+            <Card hoverable bordered={false}>
               <Motherboard title="motherboard" />
               <p
                 style={{
@@ -70,7 +70,7 @@ const FeaturedCategory = () => {
           lg={{ span: 3 }}
         >
           <Link href="/category/ram">
-            <Card hoverable bordered={false} bodyStyle={{}}>
+            <Card hoverable bordered={false}>
               <Memory title="ram memory" />
               <p
                 style={{
@@ -92,7 +92,7 @@ const FeaturedCategory = () => {
           lg={{ span: 3 }}
         >
           <Link href="/category/power-supply">
-            <Card hoverable bordered={false} bodyStyle={{}}>
+            <Card hoverable bordered={false}>
               <Power title="power supply units" />
               <p
                 style={{
@@ -114,7 +114,7 @@ const FeaturedCategory = () => {
           lg={{ span: 3 }}
         >
           <Link href="/category/storage">
-            <Card hoverable bordered={false} bodyStyle={{}}>
+            <Card hoverable bordered={false}>
               <DeviceSsd title="storage devices" />
               <p
                 style={{
@@ -136,7 +136,7 @@ const FeaturedCategory = () => {
           lg={{ span: 3 }}
         >
           <Link href="/category/monitor">
-            <Card hoverable bordered={false} bodyStyle={{}}>
+            <Card hoverable bordered={false}>
               <MonitorOutline title="monitors" />
               <p
                 style={{
