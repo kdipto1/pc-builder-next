@@ -83,7 +83,7 @@ const MainLayout = ({ children }) => {
             </Button>
           </Link>
           <Dropdown
-            menu={categoriesMenu}
+            overlay={categoriesMenu}
             placement="bottomRight"
             trigger={["click"]}
           >
